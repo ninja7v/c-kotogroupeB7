@@ -1,11 +1,15 @@
 #include <iostream>
 #include "PbTSP.hpp"
 #include "PbTriTopologique.hpp"
+#include <limits>
 using namespace std;
 
 void grapheManipulation(Graphe* g)
 {
 	int choix2 = 0;
+	int again=0;
+	char yn;
+        char error='a';
 	while (choix2 != 9)
 	{
 		cout << "1.Ajouter un sommet" << endl;
@@ -18,7 +22,21 @@ void grapheManipulation(Graphe* g)
 		cout << "8.Afficher les ajacents d'un sommet" << endl;
 		cout << "9.Quitter" << endl;
 		cout << "votre choix:";
-		cin >> choix2;
+		try{
+ 			cin >> choix2;
+			if(!cin)
+            			throw error;}
+		catch(...)
+		{
+		    cin.clear(); // Clear error flags
+		    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear out the input buffer
+		    
+		    cout<<"Error values must be numeric.";
+		    cout<<"enter new values? y/n"<<endl;
+		    cin>>yn;
+		    if(yn=='n')
+			again=1;
+		}
 		switch (choix2) {
 		case 9: break;
 		case 1: {
@@ -116,6 +134,9 @@ void grapheManipulation(Graphe* g)
 int main(int argc, char* argv[]) {
 	cout << "Projet Graphe" << endl;
 	int choix1 = 0;
+	int again=0;
+	char yn;
+        char error='a';
 	Graphe* g;
 	while (choix1 <= 0 || choix1 >= 6)
 	{
@@ -125,7 +146,21 @@ int main(int argc, char* argv[]) {
 		cout << "4.Resolution d'un probleme du voyageur de commerce" << endl;
 		cout << "5.Quitter" << endl;
 		cout << "votre choix:";
-		cin >> choix1;
+		try{
+ 			cin >> choix2;
+			if(!cin)
+            			throw error;}
+		catch(...)
+		{
+		    cin.clear(); // Clear error flags
+		    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear out the input buffer
+		    
+		    cout<<"Error values must be numeric.";
+		    cout<<"enter new values? y/n"<<endl;
+		    cin>>yn;
+		    if(yn=='n')
+			again=1;
+		}
 		switch (choix1) {
 		case 5: return 0;
 		case 1: 
