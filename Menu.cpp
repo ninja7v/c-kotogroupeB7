@@ -23,7 +23,7 @@ void grapheManipulation(Graphe* g)
 		case 9: break;
 		case 1: {
 			string nom;
-			cout << "Le nom du sommet:";
+			cout << "Le nom du sommet:(longueur maximale du nom :3)";
 			cin >> nom;
 			Sommet* s = new Sommet(nom);
 			g->ajouterSommet(*s);
@@ -33,7 +33,7 @@ void grapheManipulation(Graphe* g)
 		{
 			for (int i = 0;i < g->sommetS.size();i++)
 				cout << i + 1 << g->sommetS[i].getPresentation() << endl;
-			cout << "Quel sommet?";
+			cout << "Quel sommet? (Mettez l'entier avant le nom du sommet)";
 			int sas;
 			cin >> sas;
 			g->supprimerSommet(sas);
@@ -44,9 +44,9 @@ void grapheManipulation(Graphe* g)
 			int s1, s2,l;
 			for (int i = 0;i < g->sommetS.size();i++)
 				cout << i + 1 << g->sommetS[i].getPresentation() << endl;
-			cout << "Premier sommet?";
+			cout << "Premier sommet? (Mettez l'entier avant le nom du sommet)";
 			cin >> s1;
-			cout << "Deuxieme sommet?";
+			cout << "Deuxieme sommet? (Mettez l'entier avant le nom du sommet)";
 			cin >> s2;
 			cout << "longeur de l'arc ?";
 			cin >> l;
@@ -60,7 +60,7 @@ void grapheManipulation(Graphe* g)
 			int aas;
 			for (int i = 0;i < g->arcS.size();i++)
 				cout << i + 1 << g->arcS[i].getPremierSommet().getPresentation() << g->arcS[i].getSecondSommet().getPresentation() << endl;
-			cout << "Quel arc?";
+			cout << "Quel arc? (Mettez l'entier avant les noms des sommet representant l'arc");
 			cin >> aas;
 			g->supprimerArc(aas);
 			break;
@@ -82,7 +82,7 @@ void grapheManipulation(Graphe* g)
 		{
 			for (int i = 0;i < g->sommetS.size();i++)
 				cout << i + 1 << g->sommetS[i].getPresentation() << endl;
-			cout << "Quel sommet?";
+			cout << "Quel sommet?(Mettez l'entier avant le nom du sommet)";
 			int s;
 			cin >> s;
 			if (s > g->sommetS.size())
@@ -94,7 +94,7 @@ void grapheManipulation(Graphe* g)
 		{
 			for (int i = 0;i < g->sommetS.size();i++)
 				cout << i + 1 << g->sommetS[i].getPresentation() << endl;
-			cout << "Quel sommet?";
+			cout << "Quel sommet?(Mettez l'entier avant le nom du sommet)";
 			int s;
 			cin >> s;
 			if (s > g->sommetS.size())
@@ -166,9 +166,9 @@ int main(int argc, char* argv[]) {
 					int s1, s2;
 					for (int i = 0;i < p->gr->sommetS.size();i++)
 						cout << i + 1 << p->gr->sommetS[i].getPresentation() << endl;
-					cout << "Premiere tache?";
+					cout << "Premiere tache?(Mettez l'entier avant le nom de la tache)";
 					cin >> s1;
-					cout << "Deuxieme tache?";
+					cout << "Deuxieme tache?(Mettez l'entier avant le nom de la tache)";
 					cin >> s2;
 					if (s1 > p->gr->sommetS.size() || s2 > p->gr->sommetS.size())
 						cout << "ERREUR" << endl;
