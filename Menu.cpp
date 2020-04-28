@@ -60,7 +60,7 @@ void grapheManipulation(Graphe* g)
 			int aas;
 			for (int i = 0;i < g->arcS.size();i++)
 				cout << i + 1 << g->arcS[i].getPremierSommet().getPresentation() << g->arcS[i].getSecondSommet().getPresentation() << endl;
-			cout << "Quel arc? (Mettez l'entier avant les noms des sommet representant l'arc");
+			cout << "Quel arc? (Mettez l'entier avant les noms des sommet representant l'arc)";
 			cin >> aas;
 			g->supprimerArc(aas);
 			break;
@@ -177,7 +177,7 @@ int main(int argc, char* argv[]) {
 				}
 				case 3: {
 					p->resolution();
-					break;
+					return 0;
 				}
 				}
 			}

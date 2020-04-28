@@ -8,6 +8,7 @@ PbTriTopologique::PbTriTopologique() {
 
 void PbTriTopologique::resolution() {
 	int j;
+	bool faisable = true;
 	int nb = gr->sommetS.size();
 	for (j = 0;j <nb;j++)
 	{
@@ -21,7 +22,9 @@ void PbTriTopologique::resolution() {
 		cout << "etape" << etape<< endl;
 		gr->afficher();
 		if (candidat.empty()) {
+			faisable = false;
 			cout << "Ce probleme n'est pas resoluble" << endl;
+			break;
 		}
 		else {
 			int i = candidat[0];
@@ -35,9 +38,11 @@ void PbTriTopologique::resolution() {
 			}
 		}
 	}
-	cout << "resultat: " << endl;
-	for (j = 0;j < nb;j++) {
-		cout << " " << resultat[j].getPresentation();
+	if (faisable) {
+		cout << "resultat: " << endl;
+		for (j = 0;j < nb;j++) {
+			cout << " " << resultat[j].getPresentation();
+		}
+		cout << " " << endl;
 	}
-	cout << " " << endl;
 }
